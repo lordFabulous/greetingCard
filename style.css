@@ -1,0 +1,98 @@
+/* Base page styling */
+body {
+    background-color: #fdf8f5;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    text-align: center;
+}
+
+/* Typography */
+h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 4.5rem;
+    color: rgb(255, 107, 129);
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.message {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3rem;
+    color: rgb(255, 168, 181);
+    margin-top: 20px;
+}
+
+/* Image Styling */
+img {
+    width: 400px;
+    height: 400px;
+    object-fit: cover; /* Keeps proportion, but acts like a crop window */
+}
+
+/* Interactive trigger */
+#trigger-container {
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#trigger-container:hover {
+    transform: scale(1.05) translateY(-5px);
+}
+
+/* Hidden Class for swapping elements */
+.hidden {
+    display: none !important;
+}
+
+/* Animation for the flowers appearing */
+.fade-in {
+    animation: fadeInAnimation 1.5s ease-in-out forwards;
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+#scene-container {
+    position: relative; /* This tells the elements inside where to anchor themselves */
+    width: 450px;       /* Match this to your image width */
+    height: 350px;      /* Match this to your image height */
+    margin-top: 80px;   /* Give extra space at the top so the flowers don't hit the title */
+}
+
+/* =========================================
+   6. The Instruction Arrow (Bound to Envelope)
+========================================= */
+#instruction-arrow {
+    position: absolute;
+    bottom: -100px;       /* Hangs just slightly off the bottom edge */
+    left: -100px;         /* Hangs slightly off the left edge */
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    color: #ff6b81;      
+    z-index: 5;          
+    transform: rotate(-15deg); 
+    pointer-events: none; 
+    animation: bounceSW 2s infinite ease-in-out;
+}
+
+@keyframes bounceSW {
+    0%, 100% { 
+        transform: translateY(0) rotate(-15deg); 
+    }
+    50% { 
+        transform: translateY(-10px) rotate(-15deg); 
+    }
+}
