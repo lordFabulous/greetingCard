@@ -25,13 +25,25 @@ h1 {
     font-size: 3rem;
     color: rgb(255, 168, 181);
     margin-top: 20px;
+    margin-bottom: 30px;
 }
 
-/* Image Styling */
-img {
+/* Specific styling for Miki's long message to make it readable */
+#present-for-miki .message {
+    font-family: 'Georgia', serif; /* A classic, highly readable font */
+    font-size: 1.5rem;             /* Slightly smaller than the cursive font */
+    line-height: 1.6;              /* Adds nice breathing room between the lines */
+    color: rgb(255, 131, 150);                /* A darker red/pink to make the text pop against the background */
+    margin-bottom: 30px;
+    padding: 0 15px;               /* Keeps the text from touching the absolute edges of the screen */
+}
+
+/* Base Image Styling for Trigger and Cake */
+#trigger-container img, 
+#cake-container img {
     width: 400px;
     height: 400px;
-    object-fit: cover; /* Keeps proportion, but acts like a crop window */
+    object-fit: cover;
 }
 
 /* Interactive trigger */
@@ -49,7 +61,7 @@ img {
     display: none !important;
 }
 
-/* Animation for the flowers appearing */
+/* Animation for revealing */
 .fade-in {
     animation: fadeInAnimation 1.5s ease-in-out forwards;
 }
@@ -65,20 +77,22 @@ img {
     }
 }
 
+/* Container Styling */
 #scene-container {
-    position: relative; /* This tells the elements inside where to anchor themselves */
-    width: 450px;       /* Match this to your image width */
-    height: 350px;      /* Match this to your image height */
-    margin-top: 80px;   /* Give extra space at the top so the flowers don't hit the title */
+    position: relative;
+    width: 100%;
+    max-width: 800px;   /* Added a max-width to allow the content to breathe */
+    min-height: 350px;  /* Changed from a fixed height so the gifts fit */
+    height: auto;
+    margin-top: 10px; 
+    display: flex;
+    justify-content: center;
 }
 
-/* =========================================
-   6. The Instruction Arrow (Bound to Envelope)
-========================================= */
 #instruction-arrow {
     position: absolute;
-    bottom: -100px;       /* Hangs just slightly off the bottom edge */
-    left: -100px;         /* Hangs slightly off the left edge */
+    bottom: -50px;
+    left: 50px;
     font-family: 'Dancing Script', cursive;
     font-size: 2.5rem;
     color: #ff6b81;      
@@ -89,10 +103,50 @@ img {
 }
 
 @keyframes bounceSW {
-    0%, 100% { 
-        transform: translateY(0) rotate(-15deg); 
-    }
-    50% { 
-        transform: translateY(-10px) rotate(-15deg); 
-    }
+    0%, 100% { transform: translateY(0) rotate(-15deg); }
+    50% { transform: translateY(-10px) rotate(-15deg); }
+}
+
+/* --- NEW: Ticket Card Layout --- */
+
+.image-row {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 20px;
+    width: 100%;
+    flex-wrap: wrap; /* Allows cards to stack vertically on very small mobile screens */
+}
+
+.ticket-link-card {
+    text-decoration: none;
+    width: 45%;
+    max-width: 250px;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+}
+
+.ticket-link-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.ticket-link-card img {
+    width: 100%;
+    height: 300px; /* Forces both images to be the same height */
+    object-fit: cover; /* Crops cleanly so they match */
+}
+
+.ticket-label {
+    padding: 15px 10px;
+    font-size: 1rem;
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+    background: #fff;
 }
