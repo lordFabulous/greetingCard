@@ -4,7 +4,15 @@ Digital card for congratulating occassions.
 
 ## User Manual
 
-To customize the display, append to the url `?type=<gift|envelope>&name=<name>`.
+To use, visit webpage hosted at url `https://lordfabulous.github.io/greetingCard/`. 
+
+You can customize the webpage, by appending parameters to the url: `type` (set to `gift` or `envelope`) and `name` (set to name of the birthday boy/girl).
+
+For example:
+
+```
+https://lordfabulous.github.io/greetingCard/?type=gift&name=LordFabulous
+```
 
 ## References
 
